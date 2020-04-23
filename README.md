@@ -30,29 +30,29 @@ Udacity requires code to follow the following guidelines
 
 ##### Main Page
 
-- [] Main page shows 3 shelves for books: currently reading, want to read, and read. Each book shown on the correct shelf along with its title and all of its authors
-- [] The main page shows a control that allows users to move books between the shelves and the functionality moves with the book.
-- [] Information persists between pages or on refresh
+- [ ] Main page shows 3 shelves for books: currently reading, want to read, and read. Each book shown on the correct shelf along with its title and all of its authors
+- [ ] The main page shows a control that allows users to move books between the shelves and the functionality moves with the book.
+- [ ] Information persists between pages or on refresh
 
 ##### Search Page
 
-- [] The search page has a search input field which shows the matched books on the page along with title/authors.
-- [] Search results are not shown when there is no text in the search input box
-- [] Invalid queries also don't show search results
-- [] Works correctly regardless of the author or thumbnail missing
-- [] Multiple word searches work
-- [] Books are on the proper shelves
-- [] Move bookshelf functionality works and persists from home->search and search->home
+- [ ] The search page has a search input field which shows the matched books on the page along with title/authors.
+- [ ] Search results are not shown when there is no text in the search input box
+- [ ] Invalid queries also don't show search results
+- [ ] Works correctly regardless of the author or thumbnail missing
+- [ ] Multiple word searches work
+- [ ] Books are on the proper shelves
+- [ ] Move bookshelf functionality works and persists from home->search and search->home
 
 #### Routing
 
-- [] The main page contains a link to the search page that is functional and displays the url in the address bar
-- [] The search page contains a link to the home page that is functional and displays the url in the address bar
+- [ ] The main page contains a link to the search page that is functional and displays the url in the address bar
+- [ ] The search page contains a link to the home page that is functional and displays the url in the address bar
 
 #### Code Functionality
 
-- [] Component state is passed down from parent->child with proper React paradigms such as not directly setting state.
-- [] Books have the same state on both pages
+- [ ] Component state is passed down from parent->child with proper React paradigms such as not directly setting state.
+- [ ] Books have the same state on both pages
 
 ### Additional Features
 
