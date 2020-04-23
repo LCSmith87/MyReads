@@ -25,18 +25,18 @@ Udacity requires code to follow the following guidelines
 
 #### Application Setup
 
-- [x] Requires only `npm install` and `npm start` to get installed and launched.
+- [x] Requires only `npm install` and `npm start` to get installed and launched
 - [x] An updated README that describes the project and has instructions for installing and launching
 
 ##### Main Page
 
 - [ ] Main page shows 3 shelves for books: currently reading, want to read, and read. Each book shown on the correct shelf along with its title and all of its authors
-- [ ] The main page shows a control that allows users to move books between the shelves and the functionality moves with the book.
+- [ ] The main page shows a control that allows users to move books between the shelves and the functionality moves with the book
 - [ ] Information persists between pages or on refresh
 
 ##### Search Page
 
-- [ ] The search page has a search input field which shows the matched books on the page along with title/authors.
+- [ ] The search page has a search input field which shows the matched books on the page along with title/authors
 - [ ] Search results are not shown when there is no text in the search input box
 - [ ] Invalid queries also don't show search results
 - [ ] Works correctly regardless of the author or thumbnail missing
@@ -51,7 +51,7 @@ Udacity requires code to follow the following guidelines
 
 #### Code Functionality
 
-- [ ] Component state is passed down from parent->child with proper React paradigms such as not directly setting state.
+- [ ] Component state is passed down from parent->child with proper React paradigms such as not directly setting state
 - [ ] Books have the same state on both pages
 
 ### Additional Features
