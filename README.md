@@ -25,7 +25,7 @@ Udacity requires code to follow the following guidelines
 
 #### Application Setup
 
-- [x] Requires on `npm install` and `npm start` to get installed and launched.
+- [x] Requires only `npm install` and `npm start` to get installed and launched.
 - [x] An updated README that describes the project and has instructions for installing and launching
 
 ##### Main Page
