@@ -28,7 +28,7 @@ class BookBtn extends Component {
 							<ul>
 								<span className="book-menu-title">Move to...</span>
 								{this.props.categories.map((category) => {
-									return <li className="book-menu-item" key={category.id}>{category.shelfTitle}</li>
+									return <li onClick={() => this.handleMenuClick(this.props.bookID, category.name)} className="book-menu-item" key={category.id}>{category.shelfTitle}</li>
 								})}
 							</ul>
 						</div>

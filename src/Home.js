@@ -4,7 +4,11 @@ import Book from './Book/Book.js';
 import BookBtn from './BookBtn/BookBtn.js';
 
 const Home = (props) => {
-  const { shownCategories, categories, books } = props;
+  const { shownCategories,
+    categories,
+    books,
+    handleCategoryChange
+  } = props;
   return(
     <div className="container">
       <h1>Home</h1>
@@ -13,7 +17,7 @@ const Home = (props) => {
           {books.map((book) => {
             return book.shelf === category.name
             ? <Book key={book.id} book={book}>
-                <BookBtn bookID={book.id} categories={categories} />
+                <BookBtn handleCategoryChange={handleCategoryChange} bookID={book.id} categories={categories} />
               </Book>
             : "";
           })}

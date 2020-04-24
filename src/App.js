@@ -48,6 +48,20 @@ class App extends Component {
       }))
     })
   }
+  handleCategoryChange = (bookID, category) => {
+    //Get the book array
+    const bookArr = this.state.books.slice();
+    //Find the book in the array
+    const bookIndex = bookArr.findIndex((x) => {
+      return x.id === bookID
+    });
+    //Change the category of the book in the array
+    bookArr[bookIndex].shelf = category;
+    //Set state with the new array
+    this.setState(() => ({
+      books: bookArr
+    }))
+  }
   render() {
     const shownCategories = this.state.categories.filter((category) => {
       return category.shown === true;
@@ -62,12 +76,14 @@ class App extends Component {
                 categories={this.state.categories}
                 books={this.state.books}
                 shownCategories={shownCategories}
+                handleCategoryChange={this.handleCategoryChange}
               />
             }}/>
             <Route path="/search" render={(props) => {
               return <Search
                 categories={this.state.categories}
                 books={this.state.books}
+                handleCategoryChange={this.handleCategoryChange}
               />
             }}/>
           </Switch>
