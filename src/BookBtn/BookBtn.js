@@ -11,6 +11,9 @@ class BookBtn extends Component {
 			open: !prevState.open
 		}));
 	}
+	handleMenuClick = (bookID,category) => {
+		this.props.handleCategoryChange(bookID, category);
+	}
 	render() {
 		let isOpen = this.state.open ? "" : "hidden";
 		return(

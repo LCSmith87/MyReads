@@ -13,7 +13,7 @@ const Home = (props) => {
           {books.map((book) => {
             return book.shelf === category.name
             ? <Book key={book.id} book={book}>
-                <BookBtn categories={categories} />
+                <BookBtn bookID={book.id} categories={categories} />
               </Book>
             : "";
           })}
