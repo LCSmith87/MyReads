@@ -1,12 +1,12 @@
 import React from 'react'
 import './Book.css'
-import noThumbnail from .'/no-thumbnail.png';
+import noThumbnail from './no-thumbnail.png';
 
 const Book = (props) => {
-	const thumbnail = props.imageLinks.thumbnail
-		? props.imageLinks.thumbnail
-		: props.imageLinks.smallThumbnail
-			? props.imageLinks.smallThumbnail
+	const thumbnail = props.book.imageLinks.thumbnail
+		? props.book.imageLinks.thumbnail
+		: props.book.imageLinks.smallThumbnail
+			? props.book.imageLinks.smallThumbnail
 			: noThumbnail;
 	const { title, authors } = props.book;
 	return(
@@ -20,7 +20,7 @@ const Book = (props) => {
 				</div>
 				<div className="book-authors">
 					{authors.map((author) => {
-						<h4 key={author}>{author}</h4>
+						return <h4 key={author}>{author}</h4>
 					})}
 				</div>
 			</div>
