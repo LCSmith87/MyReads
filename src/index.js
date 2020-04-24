@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Header from './Header/Header.js';
 import * as serviceWorker from './serviceWorker';
-import App from "./App";
-import Search from "./Search";
+import App from './App';
+import Search from './Search';
 import { BrowserRouter as Router,
 	Route,
 	Switch
