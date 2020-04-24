@@ -25,7 +25,9 @@ function App() {
         <div className="container">
           <h1>Home</h1>
           {data.categories.map((category) => (
-            <Section key={category.id} name={category.name} />
+            <Section key={category.id} name={category.name}>
+              <h3>I am a child</h3>
+            </Section>
           ))}
         </div>
     </div>

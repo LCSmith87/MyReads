@@ -8,6 +8,7 @@ const Section = (props) => {
 				<h2>{props.name}</h2>
 				<div className="section-books">
 					<p>Books</p>
+					{props.children}
 				</div>
 			</div>
 		</div>
