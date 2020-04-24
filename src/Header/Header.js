@@ -1,17 +1,17 @@
-import React from 'react'
-import './Header.css'
-import logo from './myreads-logo.png'
-import { BrowserRouter as Router, Link } from 'react-router-dom'
+import React from "react"
+import "./Header.css"
+import logo from "./myreads-logo.png"
+import { FaSearch } from "react-icons/fa"
+import { Link } from "react-router-dom"
 
 const Header = () => {
 	return(
-		<div className="header">
+		<header className="header">
 			<div className="container">
-				<Router>
-					<Link to="/"><img src={logo} alt="MyReads Logo" /></Link>
-				</Router>
+				<Link to="/"><img src={logo} alt="MyReads Logo" /></Link>
+				<Link className="search-icon" to="/search"><FaSearch /></Link>
 			</div>
-		</div>
+		</header>
 	)
 }
 
