@@ -5,29 +5,35 @@ import * as booksAPI from './utils/BooksAPI';
 import Book from './Book/Book.js';
 import BookBtn from './BookBtn/BookBtn.js';
 
-const data = {
-  categories: [
-    {
-      id: 1,
-      name: 'currentlyReading',
-      shelfTitle: 'Currently Reading'
-    },
-    {
-      id: 2,
-      name: 'wantToRead',
-      shelfTitle: 'Want to Read'
-    },
-    {
-      id: 3,
-      name: 'read',
-      shelfTitle: 'Read'
-    }
-  ]
-};
-
 class App extends Component {
   state = {
-    books: []
+    books: [],
+    categories: [
+        {
+          id: 1,
+          name: 'currentlyReading',
+          shelfTitle: 'Currently Reading',
+          shown: true
+        },
+        {
+          id: 2,
+          name: 'wantToRead',
+          shelfTitle: 'Want to Read',
+          shown: true
+        },
+        {
+          id: 3,
+          name: 'read',
+          shelfTitle: 'Read',
+          shown: true
+        },
+        {
+          id: 4,
+          name: 'none',
+          shelfTitle: 'Others',
+          shown: false
+        }
+      ]
   }
   componentDidMount() {
     //Retrieve the books from the server
@@ -39,16 +45,19 @@ class App extends Component {
     })
   }
   render() {
+    const shownCategories = this.state.categories.filter((category) => {
+      return category.shown === true;
+    });
     return (
       <div className="App">
           <div className="container">
             <h1>Home</h1>
-            {data.categories.map((category) => (
+            {shownCategories.map((category) => (
               <Section key={category.id} name={category.shelfTitle}>
                 {this.state.books.map((book) => {
                   return book.shelf === category.name
                   ? <Book key={book.id} book={book}>
-                      <BookBtn categories={data.categories} />
+                      <BookBtn categories={this.state.categories} />
                     </Book>
                   : "";
                 })}
