@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import Section from './Section/Section.js';
 import * as booksAPI from './utils/BooksAPI';
-import Book from './Book/Book.js'
+import Book from './Book/Book.js';
+import BookBtn from './BookBtn/BookBtn.js';
 
 const data = {
   categories: [
@@ -46,11 +47,9 @@ class App extends Component {
               <Section key={category.id} name={category.shelfTitle}>
                 {this.state.books.map((book) => {
                   return book.shelf === category.name
-                  ? <Book
-                      key={book.id}
-                      book={book}
-                      categeories={data.categories}
-                    />
+                  ? <Book key={book.id} book={book}>
+                      <BookBtn categories={data.categories} />
+                    </Book>
                   : "";
                 })}
               </Section>
