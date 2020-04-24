@@ -1,0 +1,30 @@
+.book {
+	width: 150px;
+}
+
+.book h3,
+.book h4 {
+	margin: 0;
+	padding: 0;
+}
+
+.book-title h3 {
+	font-size: 14px;
+	margin: 0 0 5px 0;
+}
+
+.book-authors h4 {
+	font-size: 12px;
+	font-weight: 400;
+	color: #777;
+}
+
+.book-cover {
+	box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+	margin: 0 0 15px 0;
+}
+
+.book-cover img {
+	width: 100%;
+	height: 175px;
+}
