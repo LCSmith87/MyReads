@@ -22,9 +22,14 @@
 .book-cover {
 	box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
 	margin: 0 0 15px 0;
+	width: 125px;
 }
 
 .book-cover img {
 	width: 100%;
 	height: 175px;
+}
+
+.book-bottom {
+	height: 100px;
 }
