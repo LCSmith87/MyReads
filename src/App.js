@@ -42,7 +42,6 @@ class App extends Component {
       <div className="App">
           <div className="container">
             <h1>Home</h1>
-            {console.log(this.state)}
             {data.categories.map((category) => (
               <Section key={category.id} name={category.shelfTitle}>
                 {this.state.books.map((book) => {
