@@ -1,8 +1,8 @@
-import React from "react"
-import "./Header.css"
-import logo from "./myreads-logo.png"
-import { FaSearch, FaArrowLeft } from "react-icons/fa"
-import { Link, useLocation } from "react-router-dom"
+import React from 'react'
+import './Header.css'
+import logo from './myreads-logo.png'
+import { FaSearch, FaArrowLeft } from 'react-icons/fa'
+import { Link, useLocation } from 'react-router-dom'
 
 const Header = (props) => {
 
