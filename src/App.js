@@ -25,6 +25,7 @@ class App extends Component {
     books: []
   }
   componentDidMount() {
+    //Retrieve the books from the server
     booksAPI.getAll()
     .then((books) => {
       this.setState(() => ({
