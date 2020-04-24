@@ -98,10 +98,20 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+/* Fixes */
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Wrapper */
+
 .container {
   max-width: 960px;
   position: relative;
   margin: auto;
+  padding: 20px;
 }
 /* ==========================================================================
    Helper classes
