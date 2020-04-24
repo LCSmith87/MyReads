@@ -45,7 +45,13 @@ class App extends Component {
             {data.categories.map((category) => (
               <Section key={category.id} name={category.shelfTitle}>
                 {this.state.books.map((book) => {
-                  return book.shelf === category.name ? <Book key={book.id} book={book} /> : "";
+                  return book.shelf === category.name
+                  ? <Book
+                      key={book.id}
+                      book={book}
+                      categeories={data.categories}
+                    />
+                  : "";
                 })}
               </Section>
             ))}
