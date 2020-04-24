@@ -7,15 +7,18 @@ const data = {
   categories: [
     {
       id: 1,
-      name: 'Currently Reading'
+      name: 'currentlyReading',
+      shelfTitle: 'Currently Reading'
     },
     {
       id: 2,
-      name: 'Want to Read'
+      name: 'wantToRead',
+      shelfTitle: 'Want to Read'
     },
     {
       id: 3,
-      name: 'Read'
+      name: 'read',
+      shelfTitle: 'Read'
     }
   ]
 };
@@ -40,7 +43,7 @@ class App extends Component {
             <h1>Home</h1>
             {console.log(this.state)}
             {data.categories.map((category) => (
-              <Section key={category.id} name={category.name}>
+              <Section key={category.id} name={category.shelfTitle}>
                 <h3>I am a child</h3>
               </Section>
             ))}
