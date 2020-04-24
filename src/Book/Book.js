@@ -15,13 +15,15 @@ const Book = (props) => {
 				<div className="book-cover">
 					<img src={thumbnail} alt={`${title} book cover`} />
 				</div>
-				<div className="book-title">
-					<h3>{title}</h3>
-				</div>
-				<div className="book-authors">
-					{authors.map((author) => {
-						return <h4 key={author}>{author}</h4>
-					})}
+				<div className="book-bottom">
+					<div className="book-title">
+						<h3>{title}</h3>
+					</div>
+					<div className="book-authors">
+						{authors.map((author) => {
+							return <h4 key={author}>{author}</h4>
+						})}
+					</div>
 				</div>
 			</div>
 		</div>
