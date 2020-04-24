@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
-import Section from './Section/Section.js';
 import * as booksAPI from './utils/BooksAPI';
-import Book from './Book/Book.js';
-import BookBtn from './BookBtn/BookBtn.js';
+import Home from './Home.js';
+import Search from './Search.js';
+import Header from './Header/Header.js'
+import { BrowserRouter as Router,
+  Route,
+  Switch
+} from 'react-router-dom';
 
 class App extends Component {
   state = {
@@ -50,20 +54,24 @@ class App extends Component {
     });
     return (
       <div className="App">
-          <div className="container">
-            <h1>Home</h1>
-            {shownCategories.map((category) => (
-              <Section key={category.id} name={category.shelfTitle}>
-                {this.state.books.map((book) => {
-                  return book.shelf === category.name
-                  ? <Book key={book.id} book={book}>
-                      <BookBtn categories={this.state.categories} />
-                    </Book>
-                  : "";
-                })}
-              </Section>
-            ))}
-          </div>
+        <Router>
+          <Header />
+          <Switch>
+            <Route exact path="/" render={(props) => {
+              return <Home
+                categories={this.state.categories}
+                books={this.state.books}
+                shownCategories={shownCategories}
+              />
+            }}/>
+            <Route path="/search" render={(props) => {
+              return <Search
+                categories={this.state.categories}
+                books={this.state.books}
+              />
+            }}/>
+          </Switch>
+        </Router>
       </div>
     );
   }
