@@ -25,8 +25,8 @@ const Book = (props) => {
 						})}
 					</div>
 				</div>
-				{props.children}
 			</div>
+			{props.children}
 		</div>
 	)
 }
