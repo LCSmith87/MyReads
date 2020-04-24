@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Section from './Section/Section.js';
-import * as booksAPI from './BooksAPI';
+import * as booksAPI from './utils/BooksAPI';
 
 const data = {
   categories: [
