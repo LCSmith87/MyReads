@@ -24,7 +24,7 @@ class BookBtn extends Component {
 					<div className={`book-menu ${isOpen}`}>
 							<ul>
 								{this.props.categories.map((category) => {
-									return <li key={category.id}>{category.shelfTitle}</li>
+									return <li className="book-menu-item" key={category.id}>{category.shelfTitle}</li>
 								})}
 							</ul>
 						</div>

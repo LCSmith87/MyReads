@@ -26,7 +26,9 @@ const Book = (props) => {
 					</div>
 				</div>
 			</div>
-			{props.children}
+			<div className="book-btn-section">
+				{props.children}
+			</div>
 		</div>
 	)
 }

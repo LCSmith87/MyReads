@@ -30,7 +30,7 @@ class App extends Component {
         {
           id: 4,
           name: 'none',
-          shelfTitle: 'Others',
+          shelfTitle: 'None',
           shown: false
         }
       ]
