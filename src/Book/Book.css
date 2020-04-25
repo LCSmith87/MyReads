@@ -1,5 +1,7 @@
 .book {
 	width: 150px;
+	position: relative;
+	margin: 0 20px 0 20px;
 }
 
 .book h3,
@@ -36,6 +38,6 @@
 
 .book-btn-section {
 	position: absolute;
-	top: -15px;
-	right: 5px;
+	top: -30px;
+	right: -10px;
 }

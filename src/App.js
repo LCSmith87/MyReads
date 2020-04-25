@@ -3,7 +3,7 @@ import './App.css';
 import * as booksAPI from './utils/BooksAPI';
 import Home from './Home.js';
 import Search from './Search.js';
-import Header from './Header/Header.js'
+import Header from './Header/Header.js';
 import { BrowserRouter as Router,
   Route,
   Switch
@@ -41,26 +41,24 @@ class App extends Component {
   }
   componentDidMount() {
     //Retrieve the books from the server
+    this.getBooks();
+  }
+  handleCategoryChange = (bookID, category) => {
+    const book = {
+      id: bookID
+    };
+    booksAPI.update(book, category)
+    .then((result) => {
+      this.getBooks();
+    });
+  }
+  getBooks = () => {
     booksAPI.getAll()
     .then((books) => {
       this.setState(() => ({
         books
       }))
     })
-  }
-  handleCategoryChange = (bookID, category) => {
-    //Get the book array
-    const bookArr = this.state.books.slice();
-    //Find the book in the array
-    const bookIndex = bookArr.findIndex((x) => {
-      return x.id === bookID
-    });
-    //Change the category of the book in the array
-    bookArr[bookIndex].shelf = category;
-    //Set state with the new array
-    this.setState(() => ({
-      books: bookArr
-    }))
   }
   render() {
     const shownCategories = this.state.categories.filter((category) => {

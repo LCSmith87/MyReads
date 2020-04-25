@@ -10,7 +10,7 @@ const Book = (props) => {
 			: noThumbnail;
 	const { title, authors } = props.book;
 	return(
-		<div className="container">
+		<React.Fragment>
 			<div className="book">
 				<div className="book-cover">
 					<img src={thumbnail} alt={`${title} book cover`} />
@@ -25,11 +25,11 @@ const Book = (props) => {
 						})}
 					</div>
 				</div>
+				<div className="book-btn-section">
+					{props.children}
+				</div>
 			</div>
-			<div className="book-btn-section">
-				{props.children}
-			</div>
-		</div>
+		</React.Fragment>
 	)
 }
 
