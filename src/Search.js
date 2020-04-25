@@ -8,10 +8,11 @@ class Search extends Component {
 		filteredBooks: []
 	}
 	handleSearch = (query) => {
-		console.log(query);
 		const books = this.props.books;
 		let filteredBooks = books.filter((book) => {
-			return book.title.includes(query);
+			return query
+				? book.title.includes(query)
+				: "";
 		});
 		this.setState((prevState) => ({
 			filteredBooks: filteredBooks
@@ -19,7 +20,6 @@ class Search extends Component {
 	}
 	render() {
 	const { categories,
-	    books,
 	    handleCategoryChange
 	  } = this.props;
 		return(
