@@ -11,7 +11,7 @@ class Search extends Component {
 		const books = this.props.books;
 		let filteredBooks = books.filter((book) => {
 			return query
-				? book.title.includes(query)
+				? book.title.toLowerCase().includes(query.toLowerCase())
 				: "";
 		});
 		this.setState((prevState) => ({
