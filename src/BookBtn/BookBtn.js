@@ -1,13 +1,33 @@
 import React, { Component } from 'react'
 import './BookBtn.css'
 import { FaEllipsisH } from 'react-icons/fa'
+import BookMenu from '../BookMenu/BookMenu.js';
 
 class BookBtn extends Component {
+	container = React.createRef();
+	childContainer = React.createRef();
 	state = {
 		open: false,
 	}
-	handleClick = () => {
+	componentDidMount() {
+		//Adding event listener to detect for clicks outside of the component
+		document.addEventListener('mousedown', this.handleClickOutside, false);
+	}
+	componentWillUnmount() {
+		//Removing event listener to detect for clicks outside of the component
+		document.removeEventListener('mousedown', this.handleClickOutside, false);
+	}
+	handleClick = (event) => {
 		this.toggleMenu();
+	}
+	handleClickOutside = (event) => {
+		  if (this.container.current
+		  		&& !this.container.current.contains(event.target)
+		  		&& !this.childContainer.current.contains(event.target)) {
+		    this.setState({
+		      open: false,
+		    });
+		  }
 	}
 	handleMenuClick = (bookID,category) => {
 		this.props.handleCategoryChange(bookID, category);
@@ -19,26 +39,23 @@ class BookBtn extends Component {
 		}));
 	}
 	render() {
-		let isOpen = this.state.open ? "" : "hidden";
 		return(
 			<div className="container">
 				<div className="book-btn">
-					<div onClick={() => this.handleClick()} className="circle">
+					<div ref={this.container} onClick={() => this.handleClick()} className="circle">
 						<span>
 							<FaEllipsisH />
 						</span>
 					</div>
-					<div className={`book-menu ${isOpen}`}>
-							<ul>
-								<span className="book-menu-title">Move to...</span>
-								{this.props.categories.map((category) =>
-									<li onClick={() => this.handleMenuClick(this.props.bookID, category.name)}
-										className={this.props.currentCategory === category.name ? "book-menu-item check" : "book-menu-item"}
-										key={category.id}>{category.shelfTitle}
-									</li>
-								)}
-							</ul>
-						</div>
+				</div>
+				<div ref={this.childContainer}>
+					<BookMenu
+						handleMenuClick={this.handleMenuClick}
+						categories={this.props.categories}
+						isOpen={this.state.open}
+						bookID={this.props.bookID}
+						currentCategory={this.props.currentCategory}
+					/>
 				</div>
 			</div>
 		)

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Book from './Book/Book.js';
 import BookBtn from './BookBtn/BookBtn.js';
+import SearchBar from './SearchBar/SearchBar.js';
 
 class Search extends Component {
 	render() {
@@ -11,6 +12,7 @@ class Search extends Component {
 		return(
 			<div className="container">
 		      <h1>Search</h1>
+		      	<SearchBar />
 		      	<div className="search-section">
 		          {books.map((book) => {
 		            return(
