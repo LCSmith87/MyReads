@@ -11,13 +11,19 @@ class Search extends Component {
 		return(
 			<div className="container">
 		      <h1>Search</h1>
+		      	<div className="search-section">
 		          {books.map((book) => {
 		            return(
 						<Book key={book.id} book={book}>
-			              <BookBtn handleCategoryChange={handleCategoryChange} bookID={book.id} categories={categories} />
+			              <BookBtn
+			              	handleCategoryChange={handleCategoryChange}
+			              	currentCategory={book.shelf}
+			              	bookID={book.id}
+			              	categories={categories} />
 			            </Book>
 		            )
 		          })}
+		        </div>
 			</div>
 		)
 	}
