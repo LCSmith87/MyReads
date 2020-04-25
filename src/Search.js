@@ -4,6 +4,19 @@ import BookBtn from './BookBtn/BookBtn.js';
 import SearchBar from './SearchBar/SearchBar.js';
 
 class Search extends Component {
+	state = {
+		filteredBooks: []
+	}
+	handleSearch = (query) => {
+		console.log(query);
+		const books = this.props.books;
+		let filteredBooks = books.filter((book) => {
+			return book.title.includes(query);
+		});
+		this.setState((prevState) => ({
+			filteredBooks: filteredBooks
+		}))
+	}
 	render() {
 	const { categories,
 	    books,
@@ -12,9 +25,9 @@ class Search extends Component {
 		return(
 			<div className="container">
 		      <h1>Search</h1>
-		      	<SearchBar />
+		      	<SearchBar handleSearch={this.handleSearch} />
 		      	<div className="search-section">
-		          {books.map((book) => {
+		          {this.state.filteredBooks.map((book) => {
 		            return(
 						<Book key={book.id} book={book}>
 			              <BookBtn

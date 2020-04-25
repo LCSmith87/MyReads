@@ -8,7 +8,10 @@ class SearchBar extends Component {
 	updateQuery = (event) => {
 		this.setState({
 			query: event.target.value
+		}, () => {
+			this.props.handleSearch(this.state.query);
 		})
+
 	}
 	render() {
 		return(
@@ -18,7 +21,7 @@ class SearchBar extends Component {
 					name="search"
 					className="search-bar-input"
 					onChange={(event) => this.updateQuery(event)}
-					placeholder="Search..."
+					placeholder="🔎 Search..."
 				/>
 			</div>
 		)
