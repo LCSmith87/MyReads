@@ -5,29 +5,29 @@ import SearchBar from './SearchBar/SearchBar.js';
 
 class Search extends Component {
 	state = {
-		filteredBooks: []
+		query: ''
 	}
-	handleSearch = (query) => {
-		const books = this.props.books;
-		let filteredBooks = books.filter((book) => {
-			return query
-				? book.title.toLowerCase().includes(query.toLowerCase())
-				: "";
+	updateQuery = (event) => {
+		this.setState({
+			query: event.target.value
 		});
-		this.setState((prevState) => ({
-			filteredBooks: filteredBooks
-		}))
 	}
 	render() {
-	const { categories,
+	const { categories, books,
 	    handleCategoryChange
 	  } = this.props;
+	  //Filter books based on search query
+	const fBooks = books.filter((book) => {
+		return this.state.query
+			? book.title.toLowerCase().includes(this.state.query.toLowerCase())
+			: "";
+	});
 		return(
 			<div className="container">
 		      <h1>Search</h1>
-		      	<SearchBar handleSearch={this.handleSearch} />
+		      	<SearchBar updateQuery={this.updateQuery} handleSearch={this.handleSearch} />
 		      	<div className="search-section">
-		          {this.state.filteredBooks.map((book) => {
+		          {fBooks.map((book) => {
 		            return(
 						<Book key={book.id} book={book}>
 			              <BookBtn

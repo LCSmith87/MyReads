@@ -60,6 +60,14 @@ class App extends Component {
       }))
     })
   }
+  filterCategory = (categoryID) => {
+    const cat = this.state.categories;
+    const categoryIndex = cat.findIndex((c) => categoryID === c.id);
+    cat[categoryIndex].shown = !cat[categoryIndex].shown;
+    this.setState(() => ({
+      categories: cat
+    }))
+  }
   render() {
     const shownCategories = this.state.categories.filter((category) => {
       return category.shown === true;
@@ -82,6 +90,7 @@ class App extends Component {
                 categories={this.state.categories}
                 books={this.state.books}
                 handleCategoryChange={this.handleCategoryChange}
+                getBooks={this.getBooks}
               />
             }}/>
           </Switch>
