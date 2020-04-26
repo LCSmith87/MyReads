@@ -7,7 +7,32 @@ import * as booksAPI from './utils/BooksAPI';
 class Search extends Component {
 	state = {
 		query: ' ',
-		searchBooks: []
+		searchBooks: [],
+		categorizedBooks: [],
+	}
+	componentDidMount() {
+		this.getBooks();
+	}
+	getBooks = () => {
+		booksAPI.getAll()
+		.then((books) => {
+			this.setState({
+				categorizedBooks: books
+			})
+		});
+	}
+	syncCategories = (bookID, category)  => {
+		//Runs the update function on the home app is well
+		this.props.handleCategoryChange(bookID, category);
+	    const book = {
+	      id: bookID
+	    };
+	    booksAPI.update(book, category)
+	    .then((result) => {
+	    	console.log(result);
+	      this.getBooks();
+	      this.searchBooks();
+	    });
 	}
 	updateQuery = (event) => {
 		const query = event.target.value.length > 0
@@ -20,11 +45,29 @@ class Search extends Component {
 			});
 	}
 	searchBooks = () => {
+
+		//Checks for empty queries and converts them to one space
+		//I found that it performed better for rerender then no space
 		const query = this.state.query;
 		if(query.length > 0 || query !== " ") {
 			booksAPI.search(this.state.query)
 			.then((books) => {
+
+				//Makes sure books are returned or sends an empty array
 				const hasBooks = !books.error ? books : [];
+				const categorizedBooks = this.state.categorizedBooks;
+
+				//Loops the categorized books and matches with the books returned
+				//from search and assigns the same shelf
+				for (let i = 0; i < categorizedBooks.length; i++) {
+					const foundBooksIndex = hasBooks.findIndex((book) => {
+						return book.id === categorizedBooks[i].id
+					});
+					if(foundBooksIndex > -1) {
+						hasBooks[foundBooksIndex].shelf = categorizedBooks[i].shelf;
+					}
+
+				}
 				this.setState({
 					searchBooks: hasBooks
 				})
@@ -36,9 +79,7 @@ class Search extends Component {
 		}
 	}
 	render() {
-	const { categories,
-	    handleCategoryChange
-	  } = this.props;
+	const { categories } = this.props;
 		return(
 			<div className="container">
 		      <h1>Search</h1>
@@ -48,7 +89,7 @@ class Search extends Component {
 		            return(
 						<Book key={book.id} book={book}>
 			              <BookBtn
-			              	handleCategoryChange={handleCategoryChange}
+			              	handleCategoryChange={this.syncCategories}
 			              	currentCategory={book.shelf}
 			              	bookID={book.id}
 			              	categories={categories} />
