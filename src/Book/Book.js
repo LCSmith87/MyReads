@@ -3,12 +3,9 @@ import './Book.css'
 import noThumbnail from './no-thumbnail.png';
 
 const Book = (props) => {
-	const thumbnail = props.book.imageLinks.thumbnail
-		? props.book.imageLinks.thumbnail
-		: props.book.imageLinks.smallThumbnail
-			? props.book.imageLinks.smallThumbnail
-			: noThumbnail;
-	const { title, authors } = props.book;
+	const thumbnail = props.book.imageLinks ? props.book.imageLinks.thumbnail : noThumbnail;
+	const authors = props.book.authors ? props.book.authors : ["Unknown Author"];
+	const title  = props.book.title;
 	return(
 		<React.Fragment>
 			<div className="book">
