@@ -6,23 +6,27 @@ import * as booksAPI from './utils/BooksAPI';
 
 class Search extends Component {
 	state = {
-		query: '',
+		query: ' ',
 		searchBooks: []
 	}
 	updateQuery = (event) => {
-		this.setState({
-			query: event.target.value
-		}, () => {
-			this.searchBooks();
-		});
+		const query = event.target.value.length > 0
+			? event.target.value
+			: " ";
+			this.setState({
+				query: query
+			}, () => {
+				this.searchBooks();
+			});
 	}
 	searchBooks = () => {
 		const query = this.state.query;
-		if(query.length > 0) {
+		if(query.length > 0 || query !== " ") {
 			booksAPI.search(this.state.query)
 			.then((books) => {
+				const hasBooks = !books.error ? books : [];
 				this.setState({
-					searchBooks: books
+					searchBooks: hasBooks
 				})
 			})
 		} else {
