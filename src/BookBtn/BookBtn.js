@@ -28,10 +28,6 @@ class BookBtn extends Component {
 		    });
 		  }
 	}
-	handleMenuClick = (bookID,category) => {
-		this.props.handleCategoryChange(bookID, category);
-		this.toggleMenu();
-	}
 	toggleMenu = () => {
 		this.setState((prevState) => ({
 			open: !prevState.open

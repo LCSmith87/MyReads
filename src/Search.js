@@ -46,7 +46,7 @@ class Search extends Component {
 	searchBooks = () => {
 
 		//Checks for empty queries and converts them to one space
-		//I found that it performed better for rerender then no space
+		//I found that it performed better for rerender than no space
 		const query = this.state.query;
 		if(query.length > 0 || query !== " ") {
 			booksAPI.search(this.state.query)
