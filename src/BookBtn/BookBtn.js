@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import './BookBtn.css'
 import { FaEllipsisH } from 'react-icons/fa'
-import BookMenu from '../BookMenu/BookMenu.js';
 
 class BookBtn extends Component {
 	container = React.createRef();
@@ -39,6 +38,7 @@ class BookBtn extends Component {
 		}));
 	}
 	render() {
+		const open = this.state.open ? "" : "hidden";
 		return(
 			<div className="container">
 				<div className="book-btn">
@@ -48,14 +48,8 @@ class BookBtn extends Component {
 						</span>
 					</div>
 				</div>
-				<div ref={this.childContainer}>
-					<BookMenu
-						handleMenuClick={this.handleMenuClick}
-						categories={this.props.categories}
-						isOpen={this.state.open}
-						bookID={this.props.bookID}
-						currentCategory={this.props.currentCategory}
-					/>
+				<div className={open} ref={this.childContainer}>
+					{this.props.children}
 				</div>
 			</div>
 		)

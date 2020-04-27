@@ -2,14 +2,17 @@ import React from 'react'
 import './BookMenu.css'
 
 const BookMenu = (props) => {
-	const isOpen = props.isOpen ? "book-menu" : "book-menu hidden";
+	const currentCategory = !props.currentCategory
+		|| props.currentCategory === "none"
+		? "none"
+		: props.currentCategory;
 	return (
-		<div className={isOpen}>
+		<div className="book-menu">
 			<ul>
 				<span className="book-menu-title">Move to...</span>
 				{props.categories.map((category) =>
 					<li onClick={() => props.handleMenuClick(props.bookID, category.name)}
-						className={props.currentCategory === category.name ? "book-menu-item check" : "book-menu-item"}
+						className={currentCategory === category.name ? "book-menu-item check" : "book-menu-item"}
 						key={category.id}>{category.shelfTitle}
 					</li>
 				)}
